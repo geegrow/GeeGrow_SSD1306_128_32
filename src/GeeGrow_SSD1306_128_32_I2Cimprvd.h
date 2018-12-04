@@ -2,7 +2,7 @@
  * @file GeeGrow_SSD1306_128_32_I2Cimprvd.h
  *
  * This is a library for the GeeGrow SSD1306 128x32 display, which uses improved
-   I2C library I2CTransport, which provides more stable workability
+   I2C library I2CTransport, which allows to use SPI inside interrupt handlers.
  * https://www.geegrow.ru
  *
  * @section author Author
