@@ -1,22 +1,42 @@
 #ifndef _GEEGROW_SSD1306_DEFINES_H_
 #define _GEEGROW_SSD1306_DEFINES_H_
 
-// I2C address
+/**************************************************************************/
+/*!
+	@brief  I2C address
+*/
+/**************************************************************************/
 #define I2C_ADDRESS		0x3C
 
-// Screen resolution 128x32
+/**************************************************************************/
+/*!
+	@brief  Hardware screen resolution
+*/
+/**************************************************************************/
 #define LCD_WIDTH	128
 #define LCD_HEIGHT	32
 
-// Font size
+/**************************************************************************/
+/*!
+	@brief  Font size
+*/
+/**************************************************************************/
 #define FONT_WIDTH  5
 #define FONT_HEIGHT 8
 
-// Declare encodings
+/**************************************************************************/
+/*!
+	@brief  Encodings
+*/
+/**************************************************************************/
 #define ENCODING_UTF8   1
 #define	ENCODING_CP1251 2
 
-// Magic numbers from SSD1306 DataSheet for init sequence
+/**************************************************************************/
+/*!
+	@brief  Initialization commands from datasheet
+*/
+/**************************************************************************/
 #define SSD1306_SETCONTRAST 			0x81
 #define SSD1306_DISPLAYALLON_RESUME 	0xA4
 #define SSD1306_DISPLAYALLON 			0xA5
@@ -43,13 +63,21 @@
 #define SSD1306_EXTERNALVCC 			0x01
 #define SSD1306_SWITCHCAPVCC 			0x02
 
-// Libraries that can be attached
+/**************************************************************************/
+/*!
+	@brief  Libraries that can be attached
+*/
+/**************************************************************************/
 #define LIB_NUMBERS_ASCII		(1 << 1)
 #define LIB_LETTERS_ASCII		(1 << 2)
 #define LIB_SYMBOLS_ASCII		(1 << 3)
 #define LIB_LETTERS_CYRILLIC	(1 << 4)
 
-// Scrolling #defines
+/**************************************************************************/
+/*!
+	@brief  Commands for scrolling from datasheet
+*/
+/**************************************************************************/
 #define SSD1306_ACTIVATE_SCROLL                         0x2F
 #define SSD1306_DEACTIVATE_SCROLL                       0x2E
 #define SSD1306_SET_VERTICAL_SCROLL_AREA                0xA3

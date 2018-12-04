@@ -17,7 +17,7 @@
 
 /**************************************************************************/
 /*!
-    @brief  Send a bitmap of certain cyrillic letter
+	@brief  Send a bitmap of certain cyrillic letter
 	@param	_char		Symbol to be sent
 	@param  _encoding	Encoding to use for selecting bitmap
 	@return Pointer to bitmap array

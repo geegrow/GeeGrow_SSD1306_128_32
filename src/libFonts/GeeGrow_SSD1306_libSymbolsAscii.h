@@ -22,7 +22,7 @@
 
 /**************************************************************************/
 /*!
-    @brief  Class that allows to use ASCII special symbols
+	@brief  Class that allows to use ASCII special symbols
 */
 /**************************************************************************/
 class GeeGrow_SSD1306_libSymbolsAscii {
@@ -34,7 +34,7 @@ class GeeGrow_SSD1306_libSymbolsAscii {
 
 /**************************************************************************/
 /*!
-    @brief  Bitmaps for ASCII special symbols
+	@brief  Bitmaps for ASCII special symbols
 */
 /**************************************************************************/
 const uint8_t fontLibSymbolsAscii[] PROGMEM = {

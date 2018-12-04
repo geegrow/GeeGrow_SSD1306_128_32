@@ -17,7 +17,7 @@
 
 /**************************************************************************/
 /*!
-    @brief  Send a bitmap of certain ASCII number
+	@brief  Send a bitmap of certain ASCII number
 	@param	_char	Symbol to be sent
 	@return Pointer to bitmap array
 */
