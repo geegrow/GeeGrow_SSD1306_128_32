@@ -313,9 +313,9 @@ uint8_t GeeGrow_SSD1306_128_32::getRotation(){
 /**************************************************************************/
 /*!
 	@brief	Set a pixel with certain color
-	@param	_x0		X coordinate of pixel
-	@param	_y0		Y coordinate of pixel
-	@param	_color	Color of pixel to set
+	@param	_x0			X coordinate of pixel
+	@param	_y0			Y coordinate of pixel
+	@param	_color		Color of pixel to set
 	@return	Status byte
 	@note	Coordinates are counted from top left corner of the screen
 			in every rotation mode
@@ -370,11 +370,11 @@ uint8_t GeeGrow_SSD1306_128_32::drawPixel(int16_t _x0, int16_t _y0, uint8_t _col
 /**************************************************************************/
 /*!
 	@brief	Draw a line of certain color
-	@param	_x0		X coordinate of start point
-	@param	_y0		Y coordinate of start point
-	@param	_x1		X coordinate of end point
-	@param	_y1		Y coordinate of end point
-	@param	_color	Color of line to draw
+	@param	_x0			X coordinate of start point
+	@param	_y0			Y coordinate of start point
+	@param	_x1			X coordinate of end point
+	@param	_y1			Y coordinate of end point
+	@param	_color		Color of line to draw
 	@return	Status byte
 	@note	Coordinates are counted from top left corner of the screen
 			in every rotation mode
@@ -598,13 +598,13 @@ uint8_t GeeGrow_SSD1306_128_32::fillCircle(
 /**************************************************************************/
 /*!
 	@brief	Draw a triangle of certain color
-	@param	_x0		X coordinate of first point
-	@param	_y0		Y coordinate of first point
-	@param	_x1		X coordinate of second point
-	@param	_y1		Y coordinate of second point
-	@param	_x2		X coordinate of third point
-	@param	_y2		Y coordinate of third point
-	@param	_color	Color of triangle to draw
+	@param	_x0			X coordinate of first point
+	@param	_y0			Y coordinate of first point
+	@param	_x1			X coordinate of second point
+	@param	_y1			Y coordinate of second point
+	@param	_x2			X coordinate of third point
+	@param	_y2			Y coordinate of third point
+	@param	_color		Color of triangle to draw
 	@return	Status byte
 	@note	Coordinates are counted from top left corner of the screen
 			in every rotation mode
@@ -792,12 +792,12 @@ uint8_t GeeGrow_SSD1306_128_32::printChar(
 /**************************************************************************/
 /*!
 	@brief	Print a string
-	@param	_str		String to be printed
-	@param	_x0			X coordinate of top left corner of string
-	@param	_y0			Y coordinate of top left corner of string
-	@param	_interval	Number of pixels between symbols
-	@param	_size		Size of symbols in string
-	@param	_color  	Color of symbols in string
+	@param	_str			String to be printed
+	@param	_x0				X coordinate of top left corner of string
+	@param	_y0				Y coordinate of top left corner of string
+	@param	_interval		Number of pixels between symbols
+	@param	_size			Size of symbols in string
+	@param	_color  		Color of symbols in string
 	@return	Status byte
 	@note	Symbols have 5x8 resolution (if size == 1). If size is 2, then
 			resolution is 10x16 and so on.
