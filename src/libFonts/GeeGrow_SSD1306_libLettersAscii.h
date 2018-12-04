@@ -22,7 +22,7 @@
 
 /**************************************************************************/
 /*!
-	@brief  Class that allows to use ASCII letters
+	@brief	Class that allows to use ASCII letters
 */
 /**************************************************************************/
 class GeeGrow_SSD1306_libLettersAscii {
@@ -34,7 +34,7 @@ class GeeGrow_SSD1306_libLettersAscii {
 
 /**************************************************************************/
 /*!
-	@brief  Bitmaps for ASCII letters
+	@brief	Bitmaps for ASCII letters
 */
 /**************************************************************************/
 const uint8_t fontLibLettersAscii[] PROGMEM = {

@@ -22,7 +22,7 @@
 
 /**************************************************************************/
 /*!
-	@brief  Class that allows to use cyrillic letters
+	@brief	Class that allows to use cyrillic letters
 */
 /**************************************************************************/
 class GeeGrow_SSD1306_libLettersCyrillic {
@@ -34,7 +34,7 @@ class GeeGrow_SSD1306_libLettersCyrillic {
 
 /**************************************************************************/
 /*!
-	@brief  Bitmaps for cyrillic letters
+	@brief	Bitmaps for cyrillic letters
 */
 /**************************************************************************/
 const uint8_t fontLibLettersCyrillic[] PROGMEM = {

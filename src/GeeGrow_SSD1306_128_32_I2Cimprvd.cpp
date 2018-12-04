@@ -17,7 +17,7 @@
 
 /**************************************************************************/
 /*!
-	@brief  Instantiate GeeGrow SSD1306 driver for 128x32 display with
+	@brief	Instantiate GeeGrow SSD1306 driver for 128x32 display with
 			using I2CTransporter library
 */
 /**************************************************************************/
@@ -27,9 +27,9 @@ GeeGrow_SSD1306_128_32_I2Cimprvd::GeeGrow_SSD1306_128_32_I2Cimprvd() : GeeGrow_S
 
 /**************************************************************************/
 /*!
-	@brief  Refresh image on the screen (copy data from buffer to display RAM)
+	@brief	Refresh image on the screen (copy data from buffer to display RAM)
 			using I2CTransport library
-	@note   Send data by portions of 16 bytes. TX_BUFFER size is 32 bytes (Wire.h),
+	@note	Send data by portions of 16 bytes. TX_BUFFER size is 32 bytes (Wire.h),
 			but we can't make portions of 32 bytes, as every packet contains
 			1 control byte, so packet size will be 33.
 */
@@ -54,8 +54,8 @@ void GeeGrow_SSD1306_128_32_I2Cimprvd::refresh(void) {
 
 /**************************************************************************/
 /*!
-	@brief  Send command via I2C using I2CTransport library
-	@param  _cmd  Command byte
+	@brief	Send command via I2C using I2CTransport library
+	@param	_cmd	Command byte
 */
 /**************************************************************************/
 void GeeGrow_SSD1306_128_32_I2Cimprvd::ssd1306_command(uint8_t c) {

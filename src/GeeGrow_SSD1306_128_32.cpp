@@ -16,7 +16,7 @@
 
 /**************************************************************************/
 /*!
-	@brief  Instantiate GeeGrow SSD1306 driver for 128x32 display
+	@brief	Instantiate GeeGrow SSD1306 driver for 128x32 display
 */
 /**************************************************************************/
 GeeGrow_SSD1306_128_32::GeeGrow_SSD1306_128_32(){
@@ -25,8 +25,8 @@ GeeGrow_SSD1306_128_32::GeeGrow_SSD1306_128_32(){
 
 /**************************************************************************/
 /*!
-	@brief  Attach separate libraries with different symbol packs
-	@param  _libs  Bitmask which defines libs that should be attached
+	@brief	Attach separate libraries with different symbol packs
+	@param	_libs	Bitmask which defines libs that should be attached
 */
 /**************************************************************************/
 void GeeGrow_SSD1306_128_32::attachLibs(uint8_t _libs){
@@ -63,8 +63,8 @@ void GeeGrow_SSD1306_128_32::attachLibs(uint8_t _libs){
 
 /**************************************************************************/
 /*!
-	@brief  Send command via I2C
-	@param  _cmd  Command byte
+	@brief	Send command via I2C
+	@param	_cmd	Command byte
 */
 /**************************************************************************/
 void GeeGrow_SSD1306_128_32::ssd1306_command(uint8_t _cmd) {
@@ -77,7 +77,7 @@ void GeeGrow_SSD1306_128_32::ssd1306_command(uint8_t _cmd) {
 
 /**************************************************************************/
 /*!
-	@brief  Init sequence for SSD1306 display
+	@brief	Init sequence for SSD1306 display
 */
 /**************************************************************************/
 void GeeGrow_SSD1306_128_32::initialize() {
@@ -114,8 +114,8 @@ void GeeGrow_SSD1306_128_32::initialize() {
 
 /**************************************************************************/
 /*!
-	@brief  Refresh image on the screen (copy data from buffer to display RAM)
-	@note   Send data by portions of 16 bytes. TX_BUFFER size is 32 bytes (Wire.h),
+	@brief	Refresh image on the screen (copy data from buffer to display RAM)
+	@note	Send data by portions of 16 bytes. TX_BUFFER size is 32 bytes (Wire.h),
 			but we can't make portions of 32 bytes, as every packet contains
 			1 control byte, so packet size will be 33.
 */
@@ -140,8 +140,8 @@ void GeeGrow_SSD1306_128_32::refresh() {
 
 /**************************************************************************/
 /*!
-	@brief  Fill screen with certain color
-	@param  _color  Color to fill screen
+	@brief	Fill screen with certain color
+	@param	_color	Color to fill screen
 */
 /**************************************************************************/
 void GeeGrow_SSD1306_128_32::fillDisplay(uint8_t _color) {
@@ -150,9 +150,9 @@ void GeeGrow_SSD1306_128_32::fillDisplay(uint8_t _color) {
 
 /**************************************************************************/
 /*!
-	@brief  Set brightness of screen
-	@param  _brightness  Brightness value to set
-	@note   Brightness interval is 0x00 - 0xFF
+	@brief	Set brightness of screen
+	@param	_brightness	Brightness value to set
+	@note	Brightness interval is 0x00 - 0xFF
 */
 /**************************************************************************/
 void GeeGrow_SSD1306_128_32::setBrightness(uint8_t _brightness) {
@@ -162,8 +162,8 @@ void GeeGrow_SSD1306_128_32::setBrightness(uint8_t _brightness) {
 
 /**************************************************************************/
 /*!
-	@brief  Set current rotation
-	@param  _rotation  Rotation mode
+	@brief	Set current rotation
+	@param	_rotation	Rotation mode
 */
 /**************************************************************************/
 void GeeGrow_SSD1306_128_32::setRotation(uint8_t _rotation) {
@@ -193,10 +193,10 @@ void GeeGrow_SSD1306_128_32::setRotation(uint8_t _rotation) {
 
 /**************************************************************************/
 /*!
-	@brief  Start right handed scrolling
-	@param  _start  Start row value
-	@param  _stop   End row value
-	@note   The display is 16 rows high
+	@brief	Start right handed scrolling
+	@param	_start	Start row value
+	@param	_stop	End row value
+	@note	The display is 16 rows high
 */
 /**************************************************************************/
 void GeeGrow_SSD1306_128_32::startScrollRight(uint8_t _start, uint8_t _stop){
@@ -212,10 +212,10 @@ void GeeGrow_SSD1306_128_32::startScrollRight(uint8_t _start, uint8_t _stop){
 
 /**************************************************************************/
 /*!
-	@brief  Start left handed scrolling
-	@param  _start  Start row value
-	@param  _stop   End row value
-	@note   The display is 16 rows high
+	@brief	Start left handed scrolling
+	@param	_start	Start row value
+	@param	_stop	End row value
+	@note	The display is 16 rows high
 */
 /**************************************************************************/
 void GeeGrow_SSD1306_128_32::startScrollLeft(uint8_t _start, uint8_t _stop){
@@ -231,10 +231,10 @@ void GeeGrow_SSD1306_128_32::startScrollLeft(uint8_t _start, uint8_t _stop){
 
 /**************************************************************************/
 /*!
-	@brief  Start diagonal right handed scrolling
-	@param  _start  Start row value
-	@param  _stop   End row value
-	@note   The display is 16 rows high
+	@brief	Start diagonal right handed scrolling
+	@param	_start	Start row value
+	@param	_stop	End row value
+	@note	The display is 16 rows high
 */
 /**************************************************************************/
 void GeeGrow_SSD1306_128_32::startScrollDiagRight(uint8_t _start, uint8_t _stop){
@@ -252,10 +252,10 @@ void GeeGrow_SSD1306_128_32::startScrollDiagRight(uint8_t _start, uint8_t _stop)
 
 /**************************************************************************/
 /*!
-	@brief  Start diagonal left handed scrolling
-	@param  _start  Start row value
-	@param  _stop   End row value
-	@note   The display is 16 rows high
+	@brief	Start diagonal left handed scrolling
+	@param	_start	Start row value
+	@param	_stop	End row value
+	@note	The display is 16 rows high
 */
 /**************************************************************************/
 void GeeGrow_SSD1306_128_32::startScrollDiagLeft(uint8_t _start, uint8_t _stop){
@@ -273,7 +273,7 @@ void GeeGrow_SSD1306_128_32::startScrollDiagLeft(uint8_t _start, uint8_t _stop){
 
 /**************************************************************************/
 /*!
-	@brief  Stop scrolling
+	@brief	Stop scrolling
 */
 /**************************************************************************/
 void GeeGrow_SSD1306_128_32::stopScroll(){
@@ -282,8 +282,8 @@ void GeeGrow_SSD1306_128_32::stopScroll(){
 
 /**************************************************************************/
 /*!
-	@brief  Get current height of display (depends on rotation mode)
-	@return Current height of display in pixels
+	@brief	Get current height of display (depends on rotation mode)
+	@return	Current height of display in pixels
 */
 /**************************************************************************/
 int16_t GeeGrow_SSD1306_128_32::getHeight(){
@@ -292,8 +292,8 @@ int16_t GeeGrow_SSD1306_128_32::getHeight(){
 
 /**************************************************************************/
 /*!
-	@brief  Get current width of display (depends on rotation mode)
-	@return Current width of display in pixels
+	@brief	Get current width of display (depends on rotation mode)
+	@return	Current width of display in pixels
 */
 /**************************************************************************/
 int16_t GeeGrow_SSD1306_128_32::getWidth(){
@@ -302,8 +302,8 @@ int16_t GeeGrow_SSD1306_128_32::getWidth(){
 
 /**************************************************************************/
 /*!
-	@brief  Get current rotation mode
-	@return Current rotation mode
+	@brief	Get current rotation mode
+	@return	Current rotation mode
 */
 /**************************************************************************/
 uint8_t GeeGrow_SSD1306_128_32::getRotation(){
@@ -312,12 +312,12 @@ uint8_t GeeGrow_SSD1306_128_32::getRotation(){
 
 /**************************************************************************/
 /*!
-	@brief  Set a pixel with certain color
-	@param  _x0		X coordinate of pixel
-	@param  _y0		Y coordinate of pixel
-	@param  _color  Color of pixel to set
-	@return Status byte
-	@note   Coordinates are counted from top left corner of the screen
+	@brief	Set a pixel with certain color
+	@param	_x0		X coordinate of pixel
+	@param	_y0		Y coordinate of pixel
+	@param	_color	Color of pixel to set
+	@return	Status byte
+	@note	Coordinates are counted from top left corner of the screen
 			in every rotation mode
 */
 /**************************************************************************/
@@ -369,14 +369,14 @@ uint8_t GeeGrow_SSD1306_128_32::drawPixel(int16_t _x0, int16_t _y0, uint8_t _col
 
 /**************************************************************************/
 /*!
-	@brief  Draw a line of certain color
-	@param  _x0		X coordinate of start point
-	@param  _y0		Y coordinate of start point
-	@param  _x1		X coordinate of end point
-	@param  _y1		Y coordinate of end point
-	@param  _color  Color of line to draw
-	@return Status byte
-	@note   Coordinates are counted from top left corner of the screen
+	@brief	Draw a line of certain color
+	@param	_x0		X coordinate of start point
+	@param	_y0		Y coordinate of start point
+	@param	_x1		X coordinate of end point
+	@param	_y1		Y coordinate of end point
+	@param	_color	Color of line to draw
+	@return	Status byte
+	@note	Coordinates are counted from top left corner of the screen
 			in every rotation mode
 */
 /**************************************************************************/
@@ -425,14 +425,14 @@ uint8_t GeeGrow_SSD1306_128_32::drawLine(
 
 /**************************************************************************/
 /*!
-	@brief  Draw a rectangle of certain color
-	@param  _x0			X coordinate of start point
-	@param  _y0			Y coordinate of start point
-	@param  _width		Width of the rectangle
-	@param  _height		Height of the rectangle
-	@param  _color  	Color of rectangle to draw
-	@return Status byte
-	@note   Coordinates are counted from top left corner of the screen
+	@brief	Draw a rectangle of certain color
+	@param	_x0			X coordinate of start point
+	@param	_y0			Y coordinate of start point
+	@param	_width		Width of the rectangle
+	@param	_height		Height of the rectangle
+	@param	_color		Color of rectangle to draw
+	@return	Status byte
+	@note	Coordinates are counted from top left corner of the screen
 			in every rotation mode
 */
 /**************************************************************************/
@@ -461,14 +461,14 @@ uint8_t GeeGrow_SSD1306_128_32::drawRect(
 
 /**************************************************************************/
 /*!
-	@brief  Draw a filled rectangle of certain color
-	@param  _x0			X coordinate of start point
-	@param  _y0			Y coordinate of start point
-	@param  _width		Width of the rectangle
-	@param  _height		Height of the rectangle
-	@param  _color  	Color of rectangle to fill
-	@return Status byte
-	@note   Coordinates are counted from top left corner of the screen
+	@brief	Draw a filled rectangle of certain color
+	@param	_x0			X coordinate of start point
+	@param	_y0			Y coordinate of start point
+	@param	_width		Width of the rectangle
+	@param	_height		Height of the rectangle
+	@param	_color  	Color of rectangle to fill
+	@return	Status byte
+	@note	Coordinates are counted from top left corner of the screen
 			in every rotation mode
 */
 /**************************************************************************/
@@ -496,13 +496,13 @@ uint8_t GeeGrow_SSD1306_128_32::fillRect(
 
 /**************************************************************************/
 /*!
-	@brief  Draw a circle of certain color
-	@param  _x0			X coordinate of center
-	@param  _y0			Y coordinate of center
-	@param  _radius		Radius of the circle
-	@param  _color  	Color of circle to draw
-	@return Status byte
-	@note   Coordinates are counted from top left corner of the screen
+	@brief	Draw a circle of certain color
+	@param	_x0			X coordinate of center
+	@param	_y0			Y coordinate of center
+	@param	_radius		Radius of the circle
+	@param	_color		Color of circle to draw
+	@return	Status byte
+	@note	Coordinates are counted from top left corner of the screen
 			in every rotation mode
 */
 /**************************************************************************/
@@ -545,13 +545,13 @@ uint8_t GeeGrow_SSD1306_128_32::drawCircle(
 
 /**************************************************************************/
 /*!
-	@brief  Draw a filled circle of certain color
-	@param  _x0			X coordinate of center
-	@param  _y0			Y coordinate of center
-	@param  _radius		Radius of the circle
-	@param  _color  	Color of circle to fill
-	@return Status byte
-	@note   Coordinates are counted from top left corner of the screen
+	@brief	Draw a filled circle of certain color
+	@param	_x0			X coordinate of center
+	@param	_y0			Y coordinate of center
+	@param	_radius		Radius of the circle
+	@param	_color  	Color of circle to fill
+	@return	Status byte
+	@note	Coordinates are counted from top left corner of the screen
 			in every rotation mode
 */
 /**************************************************************************/
@@ -597,16 +597,16 @@ uint8_t GeeGrow_SSD1306_128_32::fillCircle(
 
 /**************************************************************************/
 /*!
-	@brief  Draw a triangle of certain color
-	@param  _x0		X coordinate of first point
-	@param  _y0		Y coordinate of first point
-	@param  _x1		X coordinate of second point
-	@param  _y1		Y coordinate of second point
-	@param  _x2		X coordinate of third point
-	@param  _y2		Y coordinate of third point
-	@param  _color  Color of triangle to draw
-	@return Status byte
-	@note   Coordinates are counted from top left corner of the screen
+	@brief	Draw a triangle of certain color
+	@param	_x0		X coordinate of first point
+	@param	_y0		Y coordinate of first point
+	@param	_x1		X coordinate of second point
+	@param	_y1		Y coordinate of second point
+	@param	_x2		X coordinate of third point
+	@param	_y2		Y coordinate of third point
+	@param	_color	Color of triangle to draw
+	@return	Status byte
+	@note	Coordinates are counted from top left corner of the screen
 			in every rotation mode
 */
 /**************************************************************************/
@@ -637,15 +637,15 @@ uint8_t GeeGrow_SSD1306_128_32::drawTriangle(
 
 /**************************************************************************/
 /*!
-	@brief  Draw a user's bitmap
-	@param  _buf		Pointer to source data buffer
-	@param  _x0			X coordinate of top left corner of bitmap
-	@param  _y0			Y coordinate of top left corner of bitmap
-	@param  _width		Width of bitmap
-	@param  _height  	Height of bitmap
-	@param  _color  	Main color of bitmap
-	@return Status byte
-	@note   The smallest piece of bitmap is 1x8 pixels (1 byte)
+	@brief	Draw a user's bitmap
+	@param	_buf		Pointer to source data buffer
+	@param	_x0			X coordinate of top left corner of bitmap
+	@param	_y0			Y coordinate of top left corner of bitmap
+	@param	_width		Width of bitmap
+	@param	_height		Height of bitmap
+	@param	_color		Main color of bitmap
+	@return	Status byte
+	@note	The smallest piece of bitmap is 1x8 pixels (1 byte)
 */
 /**************************************************************************/
 uint8_t GeeGrow_SSD1306_128_32::drawBitmap(
@@ -683,14 +683,14 @@ uint8_t GeeGrow_SSD1306_128_32::drawBitmap(
 
 /**************************************************************************/
 /*!
-	@brief  Print a symbol from attached libs
-	@param  _char		Symbol to be printed
-	@param  _x0			X coordinate of top left corner of symbol
-	@param  _y0			Y coordinate of top left corner of symbol
-	@param  _size		Size of symbol
-	@param  _color  	Color of symbol
-	@return Status byte
-	@note   Symbols have 5x8 resolution (if size == 1). If size is 2, then
+	@brief	Print a symbol from attached libs
+	@param	_char		Symbol to be printed
+	@param	_x0			X coordinate of top left corner of symbol
+	@param	_y0			Y coordinate of top left corner of symbol
+	@param	_size		Size of symbol
+	@param	_color  	Color of symbol
+	@return	Status byte
+	@note	Symbols have 5x8 resolution (if size == 1). If size is 2, then
 			resolution is 10x16 and so on.
 */
 /**************************************************************************/
@@ -791,15 +791,15 @@ uint8_t GeeGrow_SSD1306_128_32::printChar(
 
 /**************************************************************************/
 /*!
-	@brief  Print a string
-	@param  _str		String to be printed
-	@param  _x0			X coordinate of top left corner of string
-	@param  _y0			Y coordinate of top left corner of string
-	@param  _interval	Number of pixels between symbols
-	@param  _size		Size of symbols in string
-	@param  _color  	Color of symbols in string
-	@return Status byte
-	@note   Symbols have 5x8 resolution (if size == 1). If size is 2, then
+	@brief	Print a string
+	@param	_str		String to be printed
+	@param	_x0			X coordinate of top left corner of string
+	@param	_y0			Y coordinate of top left corner of string
+	@param	_interval	Number of pixels between symbols
+	@param	_size		Size of symbols in string
+	@param	_color  	Color of symbols in string
+	@return	Status byte
+	@note	Symbols have 5x8 resolution (if size == 1). If size is 2, then
 			resolution is 10x16 and so on.
 */
 /**************************************************************************/
@@ -833,9 +833,9 @@ uint8_t GeeGrow_SSD1306_128_32::printStr(
 
 /**************************************************************************/
 /*!
-	@brief  Set encoding of cyrillic symbols
-	@param  _encoding	Encoding value
-	@note   Influences only cyrillic symbols
+	@brief	Set encoding of cyrillic symbols
+	@param	_encoding	Encoding value
+	@note	Influences only cyrillic symbols
 */
 /**************************************************************************/
 void GeeGrow_SSD1306_128_32::setEncoding(uint8_t _encoding){
@@ -848,9 +848,9 @@ void GeeGrow_SSD1306_128_32::setEncoding(uint8_t _encoding){
 
 /**************************************************************************/
 /*!
-	@brief  Get current encoding of cyrillic symbols
-	@return Current value of encoding
-	@note   Influences only cyrillic symbols
+	@brief	Get current encoding of cyrillic symbols
+	@return	Current value of encoding
+	@note	Influences only cyrillic symbols
 */
 /**************************************************************************/
 uint8_t GeeGrow_SSD1306_128_32::getEncoding(){

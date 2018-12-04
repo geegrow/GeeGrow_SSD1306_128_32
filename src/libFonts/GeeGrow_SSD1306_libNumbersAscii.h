@@ -22,7 +22,7 @@
 
 /**************************************************************************/
 /*!
-	@brief  Class that allows to use ASCII numbers
+	@brief	Class that allows to use ASCII numbers
 */
 /**************************************************************************/
 class GeeGrow_SSD1306_libNumbersAscii {
@@ -34,7 +34,7 @@ class GeeGrow_SSD1306_libNumbersAscii {
 
 /**************************************************************************/
 /*!
-	@brief  Bitmaps for ASCII numbers
+	@brief	Bitmaps for ASCII numbers
 */
 /**************************************************************************/
 const uint8_t fontLibNumbersAscii[] PROGMEM = {

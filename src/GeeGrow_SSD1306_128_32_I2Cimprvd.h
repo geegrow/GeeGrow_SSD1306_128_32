@@ -18,7 +18,7 @@
 
 /**************************************************************************/
 /*!
-	@brief  Class that stores state and functions for interacting with SSD1306 display,
+	@brief	Class that stores state and functions for interacting with SSD1306 display,
 			using I2CTransport library
 */
 /**************************************************************************/

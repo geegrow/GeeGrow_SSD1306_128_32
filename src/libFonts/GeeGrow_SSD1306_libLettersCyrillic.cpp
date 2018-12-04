@@ -17,10 +17,10 @@
 
 /**************************************************************************/
 /*!
-	@brief  Send a bitmap of certain cyrillic letter
+	@brief	Send a bitmap of certain cyrillic letter
 	@param	_char		Symbol to be sent
-	@param  _encoding	Encoding to use for selecting bitmap
-	@return Pointer to bitmap array
+	@param	_encoding	Encoding to use for selecting bitmap
+	@return	Pointer to bitmap array
 */
 /**************************************************************************/
 uint8_t* GeeGrow_SSD1306_libLettersCyrillic::getBitMap(char _char, uint8_t _encoding){

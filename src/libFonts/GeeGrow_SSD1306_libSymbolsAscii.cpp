@@ -17,9 +17,9 @@
 
 /**************************************************************************/
 /*!
-	@brief  Send a bitmap of certain ASCII special symbol
+	@brief	Send a bitmap of certain ASCII special symbol
 	@param	_char	Symbol to be sent
-	@return Pointer to bitmap array
+	@return	Pointer to bitmap array
 */
 /**************************************************************************/
 uint8_t* GeeGrow_SSD1306_libSymbolsAscii::getBitMap(char _char){
