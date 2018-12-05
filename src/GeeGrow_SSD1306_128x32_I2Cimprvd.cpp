@@ -1,5 +1,5 @@
 /*!
- * @file GeeGrow_SSD1306_128_32_I2Cimprvd.cpp
+ * @file GeeGrow_SSD1306_128x32_I2Cimprvd.cpp
  *
  * This is a library for the GeeGrow SSD1306 128x32 display, which uses improved
    I2C library I2CTransport, which allows to use SPI inside interrupt handlers.
@@ -13,7 +13,7 @@
  *
  */
 
-#include "GeeGrow_SSD1306_128_32_I2Cimprvd.h"
+#include "GeeGrow_SSD1306_128x32_I2Cimprvd.h"
 
 /**************************************************************************/
 /*!
@@ -21,7 +21,7 @@
 			using I2CTransporter library
 */
 /**************************************************************************/
-GeeGrow_SSD1306_128_32_I2Cimprvd::GeeGrow_SSD1306_128_32_I2Cimprvd() : GeeGrow_SSD1306_128_32() {
+GeeGrow_SSD1306_128x32_I2Cimprvd::GeeGrow_SSD1306_128x32_I2Cimprvd() : GeeGrow_SSD1306_128x32() {
 
 }
 
@@ -34,7 +34,7 @@ GeeGrow_SSD1306_128_32_I2Cimprvd::GeeGrow_SSD1306_128_32_I2Cimprvd() : GeeGrow_S
 			1 control byte, so packet size will be 33.
 */
 /**************************************************************************/
-void GeeGrow_SSD1306_128_32_I2Cimprvd::refresh(void) {
+void GeeGrow_SSD1306_128x32_I2Cimprvd::refresh(void) {
 	this->ssd1306_command(SSD1306_COLUMNADDR);
 	this->ssd1306_command(0);
 	this->ssd1306_command(LCD_WIDTH - 1);
@@ -58,7 +58,7 @@ void GeeGrow_SSD1306_128_32_I2Cimprvd::refresh(void) {
 	@param	_cmd	Command byte
 */
 /**************************************************************************/
-void GeeGrow_SSD1306_128_32_I2Cimprvd::ssd1306_command(uint8_t c) {
+void GeeGrow_SSD1306_128x32_I2Cimprvd::ssd1306_command(uint8_t c) {
 	I2CTransport::writeByte(
 		I2C_ADDRESS,
 		0x00,	// Co = 0, D/C = 0

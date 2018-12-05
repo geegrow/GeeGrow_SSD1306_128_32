@@ -1,5 +1,5 @@
 /*!
- * @file GeeGrow_SSD1306_128_32.cpp
+ * @file GeeGrow_SSD1306_128x32.cpp
  *
  * This is a library for the GeeGrow SSD1306 128x32 display
  * https://www.geegrow.ru
@@ -12,14 +12,14 @@
  *
  */
 
-#include <GeeGrow_SSD1306_128_32.h>
+#include <GeeGrow_SSD1306_128x32.h>
 
 /**************************************************************************/
 /*!
 	@brief	Instantiate GeeGrow SSD1306 driver for 128x32 display
 */
 /**************************************************************************/
-GeeGrow_SSD1306_128_32::GeeGrow_SSD1306_128_32(){
+GeeGrow_SSD1306_128x32::GeeGrow_SSD1306_128x32(){
 	this->setRotation(ROTATION_UP);
 }
 
@@ -29,7 +29,7 @@ GeeGrow_SSD1306_128_32::GeeGrow_SSD1306_128_32(){
 	@param	_libs	Bitmask which defines libs that should be attached
 */
 /**************************************************************************/
-void GeeGrow_SSD1306_128_32::attachLibs(uint8_t _libs){
+void GeeGrow_SSD1306_128x32::attachLibs(uint8_t _libs){
 	// Create objects according to libs
 	if (_libs & LIB_LETTERS_ASCII){
 		if (this->libLettersAscii == NULL)
@@ -67,7 +67,7 @@ void GeeGrow_SSD1306_128_32::attachLibs(uint8_t _libs){
 	@param	_cmd	Command byte
 */
 /**************************************************************************/
-void GeeGrow_SSD1306_128_32::ssd1306_command(uint8_t _cmd) {
+void GeeGrow_SSD1306_128x32::ssd1306_command(uint8_t _cmd) {
 	uint8_t control = 0x00;   // Co = 0, D/C = 0
 	Wire.beginTransmission(I2C_ADDRESS);
 	Wire.write(control);
@@ -80,7 +80,7 @@ void GeeGrow_SSD1306_128_32::ssd1306_command(uint8_t _cmd) {
 	@brief	Init sequence for SSD1306 display
 */
 /**************************************************************************/
-void GeeGrow_SSD1306_128_32::initialize() {
+void GeeGrow_SSD1306_128x32::initialize() {
 	// I2C Init
 	Wire.begin();
 
@@ -120,7 +120,7 @@ void GeeGrow_SSD1306_128_32::initialize() {
 			1 control byte, so packet size will be 33.
 */
 /**************************************************************************/
-void GeeGrow_SSD1306_128_32::refresh() {
+void GeeGrow_SSD1306_128x32::refresh() {
 	this->ssd1306_command(SSD1306_COLUMNADDR);
 	this->ssd1306_command(0);
 	this->ssd1306_command(LCD_WIDTH - 1);
@@ -144,7 +144,7 @@ void GeeGrow_SSD1306_128_32::refresh() {
 	@param	_color	Color to fill screen
 */
 /**************************************************************************/
-void GeeGrow_SSD1306_128_32::fillDisplay(uint8_t _color) {
+void GeeGrow_SSD1306_128x32::fillDisplay(uint8_t _color) {
 	memset(this->buffer, 0xFF, (LCD_WIDTH/8 * LCD_HEIGHT));
 }
 
@@ -155,7 +155,7 @@ void GeeGrow_SSD1306_128_32::fillDisplay(uint8_t _color) {
 	@note	Brightness interval is 0x00 - 0xFF
 */
 /**************************************************************************/
-void GeeGrow_SSD1306_128_32::setBrightness(uint8_t _brightness) {
+void GeeGrow_SSD1306_128x32::setBrightness(uint8_t _brightness) {
 	this->ssd1306_command(SSD1306_SETCONTRAST);
 	this->ssd1306_command(_brightness);
 }
@@ -166,7 +166,7 @@ void GeeGrow_SSD1306_128_32::setBrightness(uint8_t _brightness) {
 	@param	_rotation	Rotation mode
 */
 /**************************************************************************/
-void GeeGrow_SSD1306_128_32::setRotation(uint8_t _rotation) {
+void GeeGrow_SSD1306_128x32::setRotation(uint8_t _rotation) {
 	this->params.rotation = _rotation;
 	switch (_rotation) {
 		case ROTATION_UP:
@@ -199,7 +199,7 @@ void GeeGrow_SSD1306_128_32::setRotation(uint8_t _rotation) {
 	@note	The display is 16 rows high
 */
 /**************************************************************************/
-void GeeGrow_SSD1306_128_32::startScrollRight(uint8_t _start, uint8_t _stop){
+void GeeGrow_SSD1306_128x32::startScrollRight(uint8_t _start, uint8_t _stop){
 	this->ssd1306_command(SSD1306_RIGHT_HORIZONTAL_SCROLL);
 	this->ssd1306_command(0x00);
 	this->ssd1306_command(_start);
@@ -218,7 +218,7 @@ void GeeGrow_SSD1306_128_32::startScrollRight(uint8_t _start, uint8_t _stop){
 	@note	The display is 16 rows high
 */
 /**************************************************************************/
-void GeeGrow_SSD1306_128_32::startScrollLeft(uint8_t _start, uint8_t _stop){
+void GeeGrow_SSD1306_128x32::startScrollLeft(uint8_t _start, uint8_t _stop){
 	this->ssd1306_command(SSD1306_LEFT_HORIZONTAL_SCROLL);
 	this->ssd1306_command(0x00);
 	this->ssd1306_command(_start);
@@ -237,7 +237,7 @@ void GeeGrow_SSD1306_128_32::startScrollLeft(uint8_t _start, uint8_t _stop){
 	@note	The display is 16 rows high
 */
 /**************************************************************************/
-void GeeGrow_SSD1306_128_32::startScrollDiagRight(uint8_t _start, uint8_t _stop){
+void GeeGrow_SSD1306_128x32::startScrollDiagRight(uint8_t _start, uint8_t _stop){
 	this->ssd1306_command(SSD1306_SET_VERTICAL_SCROLL_AREA);
 	this->ssd1306_command(0x00);
 	this->ssd1306_command(LCD_HEIGHT);
@@ -258,7 +258,7 @@ void GeeGrow_SSD1306_128_32::startScrollDiagRight(uint8_t _start, uint8_t _stop)
 	@note	The display is 16 rows high
 */
 /**************************************************************************/
-void GeeGrow_SSD1306_128_32::startScrollDiagLeft(uint8_t _start, uint8_t _stop){
+void GeeGrow_SSD1306_128x32::startScrollDiagLeft(uint8_t _start, uint8_t _stop){
 	this->ssd1306_command(SSD1306_SET_VERTICAL_SCROLL_AREA);
 	this->ssd1306_command(0x00);
 	this->ssd1306_command(LCD_HEIGHT);
@@ -276,7 +276,7 @@ void GeeGrow_SSD1306_128_32::startScrollDiagLeft(uint8_t _start, uint8_t _stop){
 	@brief	Stop scrolling
 */
 /**************************************************************************/
-void GeeGrow_SSD1306_128_32::stopScroll(){
+void GeeGrow_SSD1306_128x32::stopScroll(){
 	this->ssd1306_command(SSD1306_DEACTIVATE_SCROLL);
 }
 
@@ -286,7 +286,7 @@ void GeeGrow_SSD1306_128_32::stopScroll(){
 	@return	Current height of display in pixels
 */
 /**************************************************************************/
-int16_t GeeGrow_SSD1306_128_32::getHeight(){
+int16_t GeeGrow_SSD1306_128x32::getHeight(){
 	return this->params.height;
 }
 
@@ -296,7 +296,7 @@ int16_t GeeGrow_SSD1306_128_32::getHeight(){
 	@return	Current width of display in pixels
 */
 /**************************************************************************/
-int16_t GeeGrow_SSD1306_128_32::getWidth(){
+int16_t GeeGrow_SSD1306_128x32::getWidth(){
 	return this->params.width;
 }
 
@@ -306,7 +306,7 @@ int16_t GeeGrow_SSD1306_128_32::getWidth(){
 	@return	Current rotation mode
 */
 /**************************************************************************/
-uint8_t GeeGrow_SSD1306_128_32::getRotation(){
+uint8_t GeeGrow_SSD1306_128x32::getRotation(){
 	return this->params.rotation;
 }
 
@@ -321,7 +321,7 @@ uint8_t GeeGrow_SSD1306_128_32::getRotation(){
 			in every rotation mode
 */
 /**************************************************************************/
-uint8_t GeeGrow_SSD1306_128_32::drawPixel(int16_t _x0, int16_t _y0, uint8_t _color){
+uint8_t GeeGrow_SSD1306_128x32::drawPixel(int16_t _x0, int16_t _y0, uint8_t _color){
 	// Check coordinates
 	if ((_x0 >= this->params.width) || (_y0 >= this->params.height)
 		|| (_x0 < 0) || (_y0 < 0)
@@ -380,7 +380,7 @@ uint8_t GeeGrow_SSD1306_128_32::drawPixel(int16_t _x0, int16_t _y0, uint8_t _col
 			in every rotation mode
 */
 /**************************************************************************/
-uint8_t GeeGrow_SSD1306_128_32::drawLine(
+uint8_t GeeGrow_SSD1306_128x32::drawLine(
 	int16_t _x0,
 	int16_t _y0,
 	int16_t _x1,
@@ -436,7 +436,7 @@ uint8_t GeeGrow_SSD1306_128_32::drawLine(
 			in every rotation mode
 */
 /**************************************************************************/
-uint8_t GeeGrow_SSD1306_128_32::drawRect(
+uint8_t GeeGrow_SSD1306_128x32::drawRect(
 	int16_t _x0,
 	int16_t _y0,
 	int16_t _width,
@@ -472,7 +472,7 @@ uint8_t GeeGrow_SSD1306_128_32::drawRect(
 			in every rotation mode
 */
 /**************************************************************************/
-uint8_t GeeGrow_SSD1306_128_32::fillRect(
+uint8_t GeeGrow_SSD1306_128x32::fillRect(
 	int16_t _x0,
 	int16_t _y0,
 	int16_t _width,
@@ -506,7 +506,7 @@ uint8_t GeeGrow_SSD1306_128_32::fillRect(
 			in every rotation mode
 */
 /**************************************************************************/
-uint8_t GeeGrow_SSD1306_128_32::drawCircle(
+uint8_t GeeGrow_SSD1306_128x32::drawCircle(
 	int16_t _x0,
 	int16_t _y0,
 	int16_t _radius,
@@ -555,7 +555,7 @@ uint8_t GeeGrow_SSD1306_128_32::drawCircle(
 			in every rotation mode
 */
 /**************************************************************************/
-uint8_t GeeGrow_SSD1306_128_32::fillCircle(
+uint8_t GeeGrow_SSD1306_128x32::fillCircle(
 	int16_t _x0,
 	int16_t _y0,
 	int16_t _radius,
@@ -610,7 +610,7 @@ uint8_t GeeGrow_SSD1306_128_32::fillCircle(
 			in every rotation mode
 */
 /**************************************************************************/
-uint8_t GeeGrow_SSD1306_128_32::drawTriangle(
+uint8_t GeeGrow_SSD1306_128x32::drawTriangle(
 	int16_t _x0,
 	int16_t _y0,
 	int16_t _x1,
@@ -648,7 +648,7 @@ uint8_t GeeGrow_SSD1306_128_32::drawTriangle(
 	@note	The smallest piece of bitmap is 1x8 pixels (1 byte)
 */
 /**************************************************************************/
-uint8_t GeeGrow_SSD1306_128_32::drawBitmap(
+uint8_t GeeGrow_SSD1306_128x32::drawBitmap(
 	uint8_t* _buf,
 	int16_t _x0,
 	int16_t _y0,
@@ -694,7 +694,7 @@ uint8_t GeeGrow_SSD1306_128_32::drawBitmap(
 			resolution is 10x16 and so on.
 */
 /**************************************************************************/
-uint8_t GeeGrow_SSD1306_128_32::printChar(
+uint8_t GeeGrow_SSD1306_128x32::printChar(
 	char _char,
 	int16_t _x0,
 	int16_t _y0,
@@ -803,7 +803,7 @@ uint8_t GeeGrow_SSD1306_128_32::printChar(
 			resolution is 10x16 and so on.
 */
 /**************************************************************************/
-uint8_t GeeGrow_SSD1306_128_32::printStr(
+uint8_t GeeGrow_SSD1306_128x32::printStr(
 	String _str,
 	int16_t _x0,
 	int16_t _y0,
@@ -838,7 +838,7 @@ uint8_t GeeGrow_SSD1306_128_32::printStr(
 	@note	Influences only cyrillic symbols
 */
 /**************************************************************************/
-void GeeGrow_SSD1306_128_32::setEncoding(uint8_t _encoding){
+void GeeGrow_SSD1306_128x32::setEncoding(uint8_t _encoding){
 	if (this->libLettersCyrillic == NULL) {
 		Serial.println(F("setEncoding(): LIB_LETTERS_CYRILLIC not set"));
 		return;
@@ -853,7 +853,7 @@ void GeeGrow_SSD1306_128_32::setEncoding(uint8_t _encoding){
 	@note	Influences only cyrillic symbols
 */
 /**************************************************************************/
-uint8_t GeeGrow_SSD1306_128_32::getEncoding(){
+uint8_t GeeGrow_SSD1306_128x32::getEncoding(){
 	if (this->libLettersCyrillic == NULL) {
 		Serial.println(F("getEncoding(): LIB_LETTERS_CYRILLIC not set"));
 		return -1;

@@ -1,5 +1,5 @@
 /*!
- * @file GeeGrow_SSD1306_128_32_I2Cimprvd.h
+ * @file GeeGrow_SSD1306_128x32_I2Cimprvd.h
  *
  * This is a library for the GeeGrow SSD1306 128x32 display, which uses improved
    I2C library I2CTransport, which allows to use SPI inside interrupt handlers.
@@ -13,7 +13,10 @@
  *
  */
 
-#include "GeeGrow_SSD1306_128_32.h"
+#ifndef _GEEGROW_SSD1306_128x32_I2CIMPRVD_H_
+#define _GEEGROW_SSD1306_128x32_I2CIMPRVD_H_
+
+#include "GeeGrow_SSD1306_128x32.h"
 #include <I2CTransport.h>
 
 /**************************************************************************/
@@ -22,12 +25,14 @@
 			using I2CTransport library
 */
 /**************************************************************************/
-class GeeGrow_SSD1306_128_32_I2Cimprvd : public GeeGrow_SSD1306_128_32 {
+class GeeGrow_SSD1306_128x32_I2Cimprvd : public GeeGrow_SSD1306_128x32 {
 	public:
-		GeeGrow_SSD1306_128_32_I2Cimprvd();
-		~GeeGrow_SSD1306_128_32_I2Cimprvd(){}
+		GeeGrow_SSD1306_128x32_I2Cimprvd();
+		~GeeGrow_SSD1306_128x32_I2Cimprvd(){}
 		void refresh(void);
 
 	private:
 		void ssd1306_command(uint8_t c);
 };
+
+#endif /* _GEEGROW_SSD1306_128x32_I2CIMPRVD_H_ */

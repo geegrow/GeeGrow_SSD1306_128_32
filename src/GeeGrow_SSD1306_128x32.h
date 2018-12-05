@@ -1,5 +1,5 @@
 /*!
- * @file GeeGrow_SSD1306_128_32.h
+ * @file GeeGrow_SSD1306_128x32.h
  *
  * This is a library for the GeeGrow SSD1306 128x32 display
  * https://www.geegrow.ru
@@ -12,8 +12,8 @@
  *
  */
 
-#ifndef _GEEGROW_SSD1306_128_32_H_
-#define _GEEGROW_SSD1306_128_32_H_
+#ifndef _GEEGROW_SSD1306_128x32_H_
+#define _GEEGROW_SSD1306_128x32_H_
 
 #include <Wire.h>
 #include <GeeGrow_SSD1306_tools.h>
@@ -27,10 +27,10 @@
 	@brief	Class that stores state and functions for interacting with SSD1306 display
 */
 /**************************************************************************/
-class GeeGrow_SSD1306_128_32 {
+class GeeGrow_SSD1306_128x32 {
 	public:
-		GeeGrow_SSD1306_128_32();
-		~GeeGrow_SSD1306_128_32(){}
+		GeeGrow_SSD1306_128x32();
+		~GeeGrow_SSD1306_128x32(){}
 		void initialize();
 		void attachLibs(uint8_t _libs);
 		void refresh();
@@ -115,4 +115,4 @@ class GeeGrow_SSD1306_128_32 {
 		uint8_t buffer[LCD_HEIGHT * LCD_WIDTH / 8];
 };
 
-#endif /* _GEEGROW_SSD1306_128_32_H_ */
+#endif /* _GEEGROW_SSD1306_128x32_H_ */
