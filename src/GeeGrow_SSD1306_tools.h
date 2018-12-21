@@ -2,7 +2,7 @@
  * @file GeeGrow_SSD1306_tools.h
  *
  * These are auxiliary structs and defines for GeeGrow SSD1306 library
- * https://www.geegrow.ru
+ * https://geegrow.ru
  *
  * @section author Author
  * Written by Anton Pomazanov
@@ -17,40 +17,40 @@
 
 /**************************************************************************/
 /*!
-	@brief	Swap two numbers
+    @brief    Swap two numbers
 */
 /**************************************************************************/
 #define SWAP(a, b) {uint8_t t = a; a = b; b = t;}
 
 /**************************************************************************/
 /*!
-	@brief	Colors
+    @brief    Colors
 */
 /**************************************************************************/
-enum {	WHITE,
-		BLACK
-	};
+enum {  WHITE,
+        BLACK
+    };
 
 /**************************************************************************/
 /*!
-	@brief	Rotation modes
+    @brief    Rotation modes
 */
 /**************************************************************************/
-enum {	ROTATION_UP,
-		ROTATION_DOWN,
-		ROTATION_LEFT,
-		ROTATION_RIGHT
-	};
+enum {  ROTATION_UP,
+        ROTATION_DOWN,
+        ROTATION_LEFT,
+        ROTATION_RIGHT
+    };
 
 /**************************************************************************/
 /*!
-	@brief	Struct to store current display parameters
+    @brief    Struct to store current display parameters
 */
 /**************************************************************************/
 struct params_t {
-		int16_t width;
-		int16_t height;
-		uint8_t rotation;
+    int16_t width = 0;
+    int16_t height = 0;
+    uint8_t rotation = 0;
 };
 
 #endif /* _GEEGROW_SSD1306_TOOLS_H_ */
