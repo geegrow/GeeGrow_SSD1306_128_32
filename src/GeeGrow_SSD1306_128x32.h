@@ -16,11 +16,12 @@
 #define _GEEGROW_SSD1306_128x32_H_
 
 #include <Wire.h>
-#include <GeeGrow_SSD1306_tools.h>
-#include <libFonts/GeeGrow_SSD1306_libLettersAscii.h>
-#include <libFonts/GeeGrow_SSD1306_libNumbersAscii.h>
-#include <libFonts/GeeGrow_SSD1306_libSymbolsAscii.h>
-#include <libFonts/GeeGrow_SSD1306_libLettersCyrillic.h>
+#include <I2CTransport.h>
+#include "GeeGrow_SSD1306_tools.h"
+#include "libFonts/GeeGrow_SSD1306_libLettersAscii.h"
+#include "libFonts/GeeGrow_SSD1306_libNumbersAscii.h"
+#include "libFonts/GeeGrow_SSD1306_libSymbolsAscii.h"
+#include "libFonts/GeeGrow_SSD1306_libLettersCyrillic.h"
 
 /**************************************************************************/
 /*!
@@ -107,13 +108,30 @@ class GeeGrow_SSD1306_128x32 {
 
     protected:
         void ssd1306_command(uint8_t _cmd);
-        params_t params = 0;
+        params_t params;
         int8_t encoding = 0;
         GeeGrow_SSD1306_libNumbersAscii *libNumbersAscii = nullptr;
         GeeGrow_SSD1306_libLettersAscii *libLettersAscii = nullptr;
         GeeGrow_SSD1306_libSymbolsAscii *libSymbolsAscii = nullptr;
         GeeGrow_SSD1306_libLettersCyrillic *libLettersCyrillic = nullptr;
         uint8_t buffer[LCD_HEIGHT * LCD_WIDTH / 8];
+        //uint8_t buffer[512];
+};
+
+/**************************************************************************/
+/*!
+    @brief    Class that stores state and functions for interacting with SSD1306 display,
+              using I2CTransport library
+*/
+/**************************************************************************/
+class GeeGrow_SSD1306_128x32_I2Cimprvd : public GeeGrow_SSD1306_128x32 {
+    public:
+        GeeGrow_SSD1306_128x32_I2Cimprvd();
+        ~GeeGrow_SSD1306_128x32_I2Cimprvd(){}
+        void refresh(void);
+
+    private:
+        void ssd1306_command(uint8_t c);
 };
 
 #endif /* _GEEGROW_SSD1306_128x32_H_ */

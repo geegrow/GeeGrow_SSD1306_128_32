@@ -32,7 +32,7 @@ GeeGrow_SSD1306_128x32::GeeGrow_SSD1306_128x32(){
 void GeeGrow_SSD1306_128x32::attachLibs(uint8_t _libs){
     // Create objects according to libs
     if (_libs & LIB_LETTERS_ASCII){
-        if (this->libLettersAscii == nullptrptr)
+        if (this->libLettersAscii == nullptr)
             this->libLettersAscii = new GeeGrow_SSD1306_libLettersAscii();
         else
             Serial.println(F("attachLibs(): LIB_LETTERS_ASCII already set"));
@@ -145,7 +145,11 @@ void GeeGrow_SSD1306_128x32::refresh() {
 */
 /**************************************************************************/
 void GeeGrow_SSD1306_128x32::fillDisplay(uint8_t _color) {
-    memset(this->buffer, 0xFF, (LCD_WIDTH/8 * LCD_HEIGHT));
+    if (_color == WHITE) {
+        memset(this->buffer, 0xFF, (LCD_WIDTH/8 * LCD_HEIGHT));
+    } else if (_color == BLACK){
+        memset(this->buffer, 0x00, (LCD_WIDTH/8 * LCD_HEIGHT));
+    }
 }
 
 /**************************************************************************/
@@ -859,4 +863,57 @@ uint8_t GeeGrow_SSD1306_128x32::getEncoding(){
         return -1;
     }
     return this->encoding;
+}
+
+
+/**************************************************************************/
+/*!
+    @brief    Instantiate GeeGrow SSD1306 driver for 128x32 display with
+              using I2CTransporter library
+*/
+/**************************************************************************/
+GeeGrow_SSD1306_128x32_I2Cimprvd::GeeGrow_SSD1306_128x32_I2Cimprvd() : GeeGrow_SSD1306_128x32() {
+
+}
+
+/**************************************************************************/
+/*!
+    @brief    Refresh image on the screen (copy data from buffer to display RAM)
+              using I2CTransport library
+    @note     Send data by portions of 16 bytes. TX_BUFFER size is 32 bytes (Wire.h),
+              but we can't make portions of 32 bytes, as every packet contains
+              1 control byte, so packet size will be 33.
+*/
+/**************************************************************************/
+void GeeGrow_SSD1306_128x32_I2Cimprvd::refresh(void) {
+    this->ssd1306_command(SSD1306_COLUMNADDR);
+    this->ssd1306_command(0);
+    this->ssd1306_command(LCD_WIDTH - 1);
+    this->ssd1306_command(SSD1306_PAGEADDR);
+    this->ssd1306_command(0);
+    this->ssd1306_command(3);
+
+    for (uint16_t i = 0; i < (LCD_WIDTH/8 * LCD_HEIGHT); i += 16) {
+        I2CTransport::writeBytes(
+            I2C_ADDRESS,
+            0x40,    // Next bytes are data
+            16,
+            this->buffer + i
+        );
+    }
+}
+
+/**************************************************************************/
+/*!
+    @brief    Send command via I2C using I2CTransport library
+    @param    _cmd    Command byte
+*/
+/**************************************************************************/
+void GeeGrow_SSD1306_128x32_I2Cimprvd::ssd1306_command(uint8_t c) {
+    I2CTransport::writeByte(
+        I2C_ADDRESS,
+        0x00,    // Co = 0, D/C = 0
+        c,
+        false
+    );
 }
